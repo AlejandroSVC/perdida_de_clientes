@@ -3,7 +3,7 @@
 
 Este script permite construir y desplegar un pipeline de clasificación binaria usando XGBoost en AWS SageMaker, aprovechando PySpark para el preprocesamiento distribuido. Se carga datos en formato Parquet, se les procesa con PySpark y se entrena un modelo escalable en SageMaker, usando recursos gestionados de AWS.
 
-# Antecedentes
+## Antecedentes
 
 La investigación sobre la pérdida de clientes (customer churn) ha identificado diversas variables predictoras, entre las que se encuentran las siguientes:
 
@@ -97,7 +97,6 @@ final_df = pd.concat([df_pd["label"], features_df], axis=1)  # Junta label y fea
 ```
 ## 4. División de los Datos y Envío a S3
 
-```
 Dividir los datos en entrenamiento y test (80/20), guardar en CSV,
 y subir ambos archivos a S3 para consumo de SageMaker.
 ```
@@ -145,7 +144,6 @@ xgboost_estimator.fit(
 ```
 ## 6. Despliegue y Predicción en Tiempo Real (Opcional)
 
-```
 Desplegar el modelo entrenado como endpoint para predicción en tiempo real.
 Realizar una predicción de ejemplo y eliminar el endpoint cuando termines.
 ```
@@ -167,9 +165,9 @@ predictor.delete_endpoint()  # Elimina el endpoint si ya no se necesita
 
 - Este pipeline utiliza PySpark para el preprocesamiento y SageMaker para entrenamiento y despliegue, lo que facilita la escalabilidad y robustez en AWS.
 - Los datos se suben preprocesados a S3 y se entrena el modelo usando el contenedor gestionado de XGBoost.
-- Puedes desplegar el modelo para predicción en tiempo real y liberar el endpoint cuando no lo uses para evitar cargos.
-- Ajusta los tipos de instancia y parámetros de entrenamiento según el tamaño de los datos y tu presupuesto.
-- Para personalizaciones avanzadas (ingeniería de features, tuning, scripts de entrenamiento propios), revisa la [documentación de SageMaker XGBoost](https://sagemaker.readthedocs.io/en/stable/frameworks/xgboost/using_xgboost.html) y [PySpark](https://spark.apache.org/docs/latest/).
+- Es posible desplegar el modelo para predicción en tiempo real y liberar el endpoint cuando no se lo esté usando para evitar cargos.
+- Ajustar los tipos de instancia y parámetros de entrenamiento según el tamaño de los datos y el presupuesto disponible.
+- Para personalizaciones avanzadas (ingeniería de features, tuning, scripts de entrenamiento propios), revisar la [documentación de SageMaker XGBoost](https://sagemaker.readthedocs.io/en/stable/frameworks/xgboost/using_xgboost.html) y [PySpark](https://spark.apache.org/docs/latest/).
 
 ## Fuentes consultadas
 
