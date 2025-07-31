@@ -1,7 +1,6 @@
 # Predicción de la pérdida de clientes con XGBoost y PySpark en AWS
-## Pipeline robusto y gestionado en AWS SageMaker
 
-Este script permite construir y desplegar un pipeline de clasificación binaria usando XGBoost en AWS SageMaker, aprovechando PySpark para el preprocesamiento distribuido. Se carga datos en formato Parquet, se les procesa con PySpark y se entrena un modelo escalable en SageMaker, usando recursos gestionados de AWS.
+Este script permite construir y gestionar un pipeline robusto de clasificación binaria usando XGBoost en AWS SageMaker, aprovechando PySpark para el preprocesamiento distribuido. Se carga datos en formato Parquet, se les procesa con PySpark y se entrena un modelo escalable en SageMaker, usando recursos gestionados de AWS.
 
 ## Antecedentes
 
